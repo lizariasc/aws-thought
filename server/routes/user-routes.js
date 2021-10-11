@@ -3,28 +3,27 @@ const router = express.Router();
 
 const AWS = require("aws-sdk");
 const awsConfig = {
-  region: "us-east-2",
-  endpoint: new AWS.Endpoint('http://localhost:8000'), 
-};
+  region: "us-east-2"
 
+};
 AWS.config.update(awsConfig);
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 const table = "Thoughts";
 
 // GET method at the /api/users/ endpoint. We'll be retrieving all the users' thoughts from the Thoughts table.
 router.get('/users', (req, res) => {
-    const params = {
-      TableName: table
-    };
-    // Scan return all items in the table
-    dynamodb.scan(params, (err, data) => {
-      if (err) {
-        res.status(500).json(err); // an error occurred
-      }else {
-        res.json(data.Items)
-      }
-    });
-  })
+  const params = {
+    TableName: table
+  };
+  // Scan return all items in the table
+  dynamodb.scan(params, (err, data) => {
+    if (err) {
+      res.status(500).json(err); // an error occurred
+    }else {
+      res.json(data.Items)
+    }
+  });
+})
 
   router.get('/users/:username', (req, res) => {
     console.log(`Querying for thought(s) from ${req.params.username}.`);
