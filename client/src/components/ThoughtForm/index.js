@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import React, { useRef } from 'react';
+import React, { useState, useRef } from "react";
 
 const ThoughtForm = () => {
   const [formState, setFormState] = useState({
