@@ -53,16 +53,18 @@ router.get('/users', (req, res) => {
       });
   });
 
-// Create new user at /api/users
+// Create new user
 router.post('/users', (req, res) => {
-    const params = {
-      TableName: table,
-      Item: {
-        "username": req.body.username,
-        "createdAt": Date.now(),
-        "thought": req.body.thought
-      }
-    };
+  const params = {
+    TableName: table,
+    Item: {
+      "username": req.body.username,
+      "createdAt": Date.now(),
+      "thought": req.body.thought,
+      "image": req.body.image  // add new image attribute
+    }
+  };
+  // ... database call
     dynamodb.put(params, (err, data) => {
         if (err) {
           console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
