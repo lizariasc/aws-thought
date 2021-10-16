@@ -25,4 +25,4 @@ To start the application, run from the root directory:
 ![Mockup](mockup.png)
 
 ## Questions
-If you have any questions about this project, contact us through my[GitHub](https://github.com/lizariasc).
+If you have any questions about this project, contact us through my [GitHub](https://github.com/lizariasc).
